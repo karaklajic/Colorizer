@@ -1,0 +1,400 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1" />
+<META name="description" content="Project created with Motiva COLIMO">
+<META name="keywords" content="motiva, infografia, 3d, COLIMO, postproduction, development, i+d, motivacg">
+<title>Colimo web sample</title>
+<link rel="stylesheet" href="Kuhinje Kucevic_.css" type="text/css" media="screen" />
+<style type="text/css">
+.hidden {
+	visibility: hidden;
+}
+.sirinapadmeni {
+	width: 170px;
+}
+</style>
+<script type="text/javascript">
+
+var ImgResult = new Array();
+var selectedArray = new Array();
+var currobj=0;
+var currmat=0;
+
+function change_object(){
+    
+    currobj = document.states.object.selectedIndex;
+    currmat = selectedArray[currobj];
+    
+    
+    document.states.material.length=matIDArray[currobj].length
+    for (i=0;i<(matIDArray[currobj].length);i++)
+      { 
+        document.states.material.options[i].value = matIDArray[currobj][i];
+        document.states.material.options[i].text = matNamesArray[currobj][i];
+      }
+    document.states.material.selectedIndex=currmat;
+       
+    ImgResult[currobj] = objIDArray[currobj]+matIDArray[currobj][currmat];   
+    document.states.imageName.value = (prefix+ImgResult.join("")+suffix);
+    document.states.imagen.src=(prefix+ImgResult.join("")+suffix);
+}
+
+function change_material(){
+    
+    currobj = document.states.object.selectedIndex;
+    currmat = document.states.material.selectedIndex;
+   
+    ImgResult[currobj] = objIDArray[currobj]+matIDArray[currobj][currmat];   
+    document.states.imageName.value = (prefix+ImgResult.join("")+suffix);
+    document.states.imagen.src=(prefix+ImgResult.join("")+suffix);
+    selectedArray[currobj]=currmat;
+} 
+
+function imagedata_init (mt1, mt2) {
+  for (i=0;i<objIDArray.length;i++){
+  mt1[i] = objIDArray[i]+matIDArray[i][0];
+  mt2[i] = 0; 
+}
+}
+
+function centrado (foto)
+{
+var width = foto.width;
+//alert ('The image size is '+width);
+document.getElementById('centrator').style.width = width;
+}
+
+var prefix="Kuhinje Kucevic_";
+var suffix=".jpg";
+
+var currobj="0";
+var objIDArray = new Array();
+var objNamesArray = new Array();
+var matIDArray = new Array();
+var matNamesArray = new Array();
+
+matIDArray[0]=new Array();
+matNamesArray[0] = new Array();
+objIDArray[0]="1";
+objNamesArray[0]="FRONTOVI";
+matIDArray[0][0]="B";
+matNamesArray[0][0]="0104 BIANCO ROSATO";
+matIDArray[0][1]="C";
+matNamesArray[0][1]="0181 CIOCCOLATO";
+matIDArray[0][2]="D";
+matNamesArray[0][2]="L001 WHITE";
+matIDArray[0][3]="E";
+matNamesArray[0][3]="L002 BIANCO";
+matIDArray[0][4]="F";
+matNamesArray[0][4]="L003 BLACK";
+matIDArray[0][5]="G";
+matNamesArray[0][5]="L004 ANTHRACITE";
+matIDArray[0][6]="H";
+matNamesArray[0][6]="L005 RED";
+matIDArray[0][7]="I";
+matNamesArray[0][7]="L006 VISON";
+matIDArray[0][8]="J";
+matNamesArray[0][8]="L009 BROWN";
+matIDArray[0][9]="K";
+matNamesArray[0][9]="L042 AMAZON";
+
+matIDArray[1]=new Array();
+matNamesArray[1] = new Array();
+objIDArray[1]="2";
+objNamesArray[1]="RP + SOKLA";
+matIDArray[1][0]="B";
+matNamesArray[1][0]="0104 BIANCO ROSATO";
+matIDArray[1][1]="C";
+matNamesArray[1][1]="0181 CIOCCOLATO";
+matIDArray[1][2]="D";
+matNamesArray[1][2]="L001 WHITE";
+matIDArray[1][3]="E";
+matNamesArray[1][3]="L002 BIANCO";
+matIDArray[1][4]="F";
+matNamesArray[1][4]="L003 BLACK";
+matIDArray[1][5]="G";
+matNamesArray[1][5]="L004 ANTHRACITE";
+matIDArray[1][6]="H";
+matNamesArray[1][6]="L005 RED";
+matIDArray[1][7]="I";
+matNamesArray[1][7]="L006 VISON";
+matIDArray[1][8]="J";
+matNamesArray[1][8]="L009 BROWN";
+
+matIDArray[2]=new Array();
+matNamesArray[2] = new Array();
+objIDArray[2]="3";
+objNamesArray[2]="PRINT";
+matIDArray[2][0]="B";
+matNamesArray[2][0]="FK 7";
+matIDArray[2][1]="C";
+matNamesArray[2][1]="FK 9";
+matIDArray[2][2]="D";
+matNamesArray[2][2]="FK 13";
+matIDArray[2][3]="E";
+matNamesArray[2][3]="FK 18";
+matIDArray[2][4]="F";
+matNamesArray[2][4]="FK 19";
+matIDArray[2][5]="G";
+matNamesArray[2][5]="FK 33";
+matIDArray[2][6]="H";
+matNamesArray[2][6]="FK 34";
+matIDArray[2][7]="I";
+matNamesArray[2][7]="FK 38";
+matIDArray[2][8]="J";
+matNamesArray[2][8]="FK 107";
+matIDArray[2][9]="K";
+matNamesArray[2][9]="FK 123";
+matIDArray[2][10]="L";
+matNamesArray[2][10]="FK 123_1";
+matIDArray[2][11]="M";
+matNamesArray[2][11]="FK 137";
+matIDArray[2][12]="N";
+matNamesArray[2][12]="FK 169";
+matIDArray[2][13]="O";
+matNamesArray[2][13]="FK 187";
+matIDArray[2][14]="P";
+matNamesArray[2][14]="FK 195";
+matIDArray[2][15]="Q";
+matNamesArray[2][15]="FK 200";
+matIDArray[2][16]="R";
+matNamesArray[2][16]="FK 201";
+matIDArray[2][17]="S";
+matNamesArray[2][17]="FK 213";
+matIDArray[2][18]="T";
+matNamesArray[2][18]="FK 263";
+matIDArray[2][19]="U";
+matNamesArray[2][19]="FK 309";
+matIDArray[2][20]="V";
+matNamesArray[2][20]="FK 314";
+matIDArray[2][21]="W";
+matNamesArray[2][21]="FK 314_1";
+matIDArray[2][22]="Y";
+matNamesArray[2][22]="FK 325";
+matIDArray[2][23]="Z";
+matNamesArray[2][23]="FK 344";
+matIDArray[2][24]="AB";
+matNamesArray[2][24]="FK 349";
+matIDArray[2][25]="BB";
+matNamesArray[2][25]="FK 350";
+matIDArray[2][26]="CB";
+matNamesArray[2][26]="FP 5";
+matIDArray[2][27]="DB";
+matNamesArray[2][27]="FP 6";
+matIDArray[2][28]="EB";
+matNamesArray[2][28]="FP 7";
+matIDArray[2][29]="FB";
+matNamesArray[2][29]="FP 10";
+matIDArray[2][30]="GB";
+matNamesArray[2][30]="FP 12";
+matIDArray[2][31]="HB";
+matNamesArray[2][31]="FP 13";
+matIDArray[2][32]="IB";
+matNamesArray[2][32]="FP 16";
+matIDArray[2][33]="JB";
+matNamesArray[2][33]="FP 18";
+matIDArray[2][34]="KB";
+matNamesArray[2][34]="FP 20";
+matIDArray[2][35]="LB";
+matNamesArray[2][35]="FP 21";
+matIDArray[2][36]="MB";
+matNamesArray[2][36]="FP 24";
+matIDArray[2][37]="NB";
+matNamesArray[2][37]="FP 27";
+matIDArray[2][38]="OB";
+matNamesArray[2][38]="FP 31";
+matIDArray[2][39]="PB";
+matNamesArray[2][39]="FP 33";
+matIDArray[2][40]="QB";
+matNamesArray[2][40]="FP 34";
+matIDArray[2][41]="RB";
+matNamesArray[2][41]="FP 36";
+matIDArray[2][42]="SB";
+matNamesArray[2][42]="FP 37";
+matIDArray[2][43]="TB";
+matNamesArray[2][43]="FP 38";
+matIDArray[2][44]="UB";
+matNamesArray[2][44]="FP 40";
+matIDArray[2][45]="VB";
+matNamesArray[2][45]="FP 47";
+matIDArray[2][46]="WB";
+matNamesArray[2][46]="FP 53";
+matIDArray[2][47]="YB";
+matNamesArray[2][47]="FP 55";
+matIDArray[2][48]="ZB";
+matNamesArray[2][48]="FP 61";
+matIDArray[2][49]="AC";
+matNamesArray[2][49]="FP 65";
+matIDArray[2][50]="BC";
+matNamesArray[2][50]="FP 67";
+matIDArray[2][51]="CC";
+matNamesArray[2][51]="FP 68";
+matIDArray[2][52]="DC";
+matNamesArray[2][52]="FP 69";
+matIDArray[2][53]="EC";
+matNamesArray[2][53]="FP 70";
+matIDArray[2][54]="FC";
+matNamesArray[2][54]="FP 73";
+matIDArray[2][55]="GC";
+matNamesArray[2][55]="FP 75";
+matIDArray[2][56]="HC";
+matNamesArray[2][56]="FP 76";
+matIDArray[2][57]="IC";
+matNamesArray[2][57]="FP 79";
+matIDArray[2][58]="JC";
+matNamesArray[2][58]="FP 80";
+matIDArray[2][59]="KC";
+matNamesArray[2][59]="FP 81";
+matIDArray[2][60]="LC";
+matNamesArray[2][60]="FP 84";
+matIDArray[2][61]="MC";
+matNamesArray[2][61]="FP 85";
+matIDArray[2][62]="NC";
+matNamesArray[2][62]="FP 91";
+matIDArray[2][63]="OC";
+matNamesArray[2][63]="FP 92";
+matIDArray[2][64]="PC";
+matNamesArray[2][64]="FP 99";
+matIDArray[2][65]="QC";
+matNamesArray[2][65]="FP 100";
+matIDArray[2][66]="RC";
+matNamesArray[2][66]="FP 101";
+matIDArray[2][67]="SC";
+matNamesArray[2][67]="FP 103";
+matIDArray[2][68]="TC";
+matNamesArray[2][68]="FP 105";
+matIDArray[2][69]="UC";
+matNamesArray[2][69]="FP 109";
+matIDArray[2][70]="VC";
+matNamesArray[2][70]="FP 110";
+matIDArray[2][71]="WC";
+matNamesArray[2][71]="FP 111";
+matIDArray[2][72]="YC";
+matNamesArray[2][72]="FP 112";
+matIDArray[2][73]="ZC";
+matNamesArray[2][73]="FP 113";
+matIDArray[2][74]="AD";
+matNamesArray[2][74]="FP 117";
+matIDArray[2][75]="BD";
+matNamesArray[2][75]="FP 118";
+matIDArray[2][76]="CD";
+matNamesArray[2][76]="FP 120";
+matIDArray[2][77]="DD";
+matNamesArray[2][77]="FP 121";
+matIDArray[2][78]="ED";
+matNamesArray[2][78]="FP 124";
+matIDArray[2][79]="FD";
+matNamesArray[2][79]="FP 127";
+matIDArray[2][80]="GD";
+matNamesArray[2][80]="FP 130";
+matIDArray[2][81]="HD";
+matNamesArray[2][81]="FP 132";
+matIDArray[2][82]="ID";
+matNamesArray[2][82]="FP 134";
+matIDArray[2][83]="JD";
+matNamesArray[2][83]="FP 135";
+matIDArray[2][84]="KD";
+matNamesArray[2][84]="FP 136";
+matIDArray[2][85]="LD";
+matNamesArray[2][85]="FP 139";
+matIDArray[2][86]="MD";
+matNamesArray[2][86]="FP 140";
+matIDArray[2][87]="ND";
+matNamesArray[2][87]="FP 140_1";
+matIDArray[2][88]="OD";
+matNamesArray[2][88]="FP 142";
+matIDArray[2][89]="PD";
+matNamesArray[2][89]="FP 143";
+matIDArray[2][90]="QD";
+matNamesArray[2][90]="FP 146";
+matIDArray[2][91]="RD";
+matNamesArray[2][91]="FP 152";
+matIDArray[2][92]="SD";
+matNamesArray[2][92]="FP 153";
+matIDArray[2][93]="TD";
+matNamesArray[2][93]="FP 155";
+matIDArray[2][94]="UD";
+matNamesArray[2][94]="FP 156";
+matIDArray[2][95]="VD";
+matNamesArray[2][95]="FP 157 + FP 161";
+matIDArray[2][96]="WD";
+matNamesArray[2][96]="FP 163";
+matIDArray[2][97]="YD";
+matNamesArray[2][97]="FP 164";
+matIDArray[2][98]="ZD";
+matNamesArray[2][98]="FP 165";
+matIDArray[2][99]="AE";
+matNamesArray[2][99]="FP 172";
+matIDArray[2][100]="BE";
+matNamesArray[2][100]="FP 174";
+matIDArray[2][101]="CE";
+matNamesArray[2][101]="FP 175";
+matIDArray[2][102]="DE";
+matNamesArray[2][102]="FP 177";
+matIDArray[2][103]="EE";
+matNamesArray[2][103]="FP 180";
+matIDArray[2][104]="FE";
+matNamesArray[2][104]="FU 8";
+matIDArray[2][105]="GE";
+matNamesArray[2][105]="FU 34";
+
+
+</script>
+</head>
+<body>
+<div id="centrator" class="container" style="margin-top:25px; border-width:0px; width:600px;">
+<p class="cabecera">Kuhinje Ku&#269;evi&#263;</p>
+<form ENCTYPE="multipart/form-data" action="" name="states">
+<table width="1400" border="1">
+  <tr>
+    <td width="302"><label class="labeladmin">Odaberi Grupu:&nbsp;</label>
+      <SELECT NAME="object" onChange="change_object()">
+        <script type="text/javascript">
+ 
+for (i=0;i<objIDArray.length;i++)
+  { 
+  document.write("<OPTION value=\"");
+  document.write(objIDArray[i]);
+  document.write("\">");
+  document.write(objNamesArray[i]);
+  document.write("</OPTION>");
+  }
+      </script>
+      </SELECT></td>
+    <td width="1082"><label class="labeladmin">Promeni  Materijal:&nbsp;</label>
+      <SELECT NAME="material" class="sirinapadmeni" onChange="change_material()">
+        <script type="text/javascript">
+
+for (i=0;i<matIDArray[0].length;i++)
+  { 
+  document.write("<OPTION value=\"");
+  document.write(matIDArray[0][i]);
+  document.write("\">");
+  document.write(matNamesArray[0][i]);
+  document.write("</OPTION>");
+  }
+
+      </script>
+      </SELECT></td>
+  </tr>
+</table>
+<input name="imageName" type="text" class="hidden" value="image">
+<div class="imagen">
+	<img id="imagen" name="imagen" src="<script>document.write(prefix+ImgResult.join('')+suffix);</script>" onload="centrado(this)"/>
+</div>
+</form>
+
+<script> 
+imagedata_init(ImgResult, selectedArray);
+document.states.imageName.value = (prefix+ImgResult.join("")+suffix);
+document.states.object.selectedIndex=0;
+document.states.material.selectedIndex=0;
+document.states.imagen.src=(prefix+ImgResult.join("")+suffix);
+
+
+</script> 
+</div>
+
+</body>
+
+</html>
